@@ -1,7 +1,7 @@
 # analisis_macroeconomia_colombia
 Análisis financiero de las 10K empresas de Colombia: Eficiencia, Solidez y Concentración Geográfica.
 
-![Dashboard Screenshot](<img width="941" height="765" alt="image" src="https://github.com/user-attachments/assets/c63c722f-62ea-46b7-b39a-02b7ae779cba" />
+**Dashboard Screenshot**(<img width="941" height="765" alt="image" src="https://github.com/user-attachments/assets/c63c722f-62ea-46b7-b39a-02b7ae779cba" />
 <img width="965" height="784" alt="image" src="https://github.com/user-attachments/assets/51ff2b87-a8ef-43f2-a7bd-92c00fd0bb0d" />)
 
 # Análisis Económico Estratégico de Macrosectoriales en Colombia
@@ -24,7 +24,7 @@ El análisis diagnóstico busca apoyar la toma de decisiones sobre dónde focali
 **Python (VS Code):** Limpieza, manejo de *outliers* y transformación de variables financieras a formato numérico (Float64).
 **Google Sheets:** Cálculos iniciales de indicadores clave (Ratio de Endeudamiento y Eficiencia Operativa).
 **Tableau Public:** Diseño de dashboard interactivo para visualizar concentración de capital, eficiencia y riesgo geográfico.
-**Fuente de Datos:** Datos Abiertos GOV.CO ("10.000 Empresas más Grandes del País")[cite: https://www.datos.gov.co/Comercio-Industria-y-Turismo/10-000-Empresas-mas-Grandes-del-Pa-s/6cat-2gcs/about_data].
+**Fuente de Datos:** Datos Abiertos GOV.CO ("10.000 Empresas más Grandes del País")[cite: <https://www.datos.gov.co/Comercio-Industria-y-Turismo/10-000-Empresas-mas-Grandes-del-Pa-s/6cat-2gcs/about_data>].
 
 ##  Proceso de Análisis (Metodología)
 
