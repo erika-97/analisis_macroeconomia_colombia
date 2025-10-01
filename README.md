@@ -37,7 +37,7 @@ El análisis diagnóstico busca apoyar la toma de decisiones sobre dónde focali
 ##  Hallazgos Clave
 
 | Indicador | Sector Líder | Valor (2021-2023) | Conclusión |
-| ------------------------------------------------------------------------------
+
 | **Rentabilidad Total** | Servicios | $22.24 Billones COP | Es el motor económico en volumen absoluto. |
 | **Eficiencia Operativa** | Minero | 8.39% Margen | **Servicios (4.99%)** es superado, indicando oportunidad para optimizar costos operativos. |
 | **Solidez Financiera** | Agropecuario | 46.7% Ratio de Endeudamiento | Mayor estabilidad financiera y menor riesgo de deuda. |
