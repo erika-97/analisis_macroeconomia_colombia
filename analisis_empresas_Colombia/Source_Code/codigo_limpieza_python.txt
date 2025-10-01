@@ -1,0 +1,84 @@
+import pandas as pd
+
+# 1. CARGAR EL ARCHIVO
+df = pd.read_csv(r"C:\Users\manue\Documents\Erika\curso analisis de datos\10.000_Empresas_mas_Grandes_del_País.csv")
+
+# 2. VERIFICAR LA CARGA
+print("\nInformación inicial del DataFrame:")
+df.info()
+
+# 3. LIMPIEZA DE DATOS 
+
+# LISTAS DE COLUMNAS
+columnas_de_identificador = ["NIT", "Año de Corte"] 
+columnas_a_limpiar_financieras = [
+    "INGRESOS OPERACIONALES", 
+    "GANANCIA (PÉRDIDA)", 
+    "TOTAL ACTIVOS", 
+    "TOTAL PASIVOS",
+    "TOTAL PATRIMONIO"
+]
+
+## 3.1 CONVERSIÓN DE IDENTIFICADORES Y AÑOS
+# Esto debe hacerse ANTES de cualquier limpieza agresiva.
+print("\n--- 3.1 Conversión de Identificadores (NIT, Año de Corte) ---")
+for col in columnas_de_identificador:
+    df[col] = df[col].astype(str).str.replace(r'[^\d]', '', regex=True)
+    df[col] = pd.to_numeric(df[col], errors='coerce')
+    df[col] = df[col].astype('Int64') 
+    print(f"Columna '{col}' convertida a entero.")
+
+
+## 3.2 LIMPIEZA DE CARACTERES EN COLUMNAS FINANCIERAS
+print("\n--- 3.2 Limpieza de Caracteres en Columnas Financieras ---")
+for col in columnas_a_limpiar_financieras:
+    # 1. Se elimina CUALQUIER COSA que no sea un dígito, un punto o un signo menos
+    df[col] = df[col].astype(str).str.replace(r'[^\d\.\-]', '', regex=True)   
+    
+    # 2. Conversión a número decimal (float). 
+    df[col] = pd.to_numeric(df[col], errors='coerce')
+    print(f"Columna '{col}' limpia y convertida a float.")
+
+
+## 3.3 APLICAR FILTRO DE OUTLIERS
+df_limpio = df.copy() # Copia del df YA CONVERTIDO
+
+print("\n--- 3.3 Aplicando Filtro de Outliers ---")
+for columna in columnas_a_limpiar_financieras:
+    
+    media = df_limpio[columna].mean()
+    desv = df_limpio[columna].std()
+    limite_inferior = media - (2 * desv)
+    limite_superior = media + (2 * desv)
+    
+    # Filtrado 
+    df_limpio = df_limpio[
+        (df_limpio[columna].between(limite_inferior, limite_superior)) | 
+        (df_limpio[columna].isna())
+    ]
+    
+# Mostrar resultados del filtro de outliers
+print(f"Filas originales: {len(df)}")
+print(f"Filas después del filtro: {len(df_limpio)}")
+
+
+## 3.4 LIMPIEZA DE TEXTO (NORMALIZACIÓN Y NULOS)
+columnas_de_texto = [
+    "RAZÓN SOCIAL", "SUPERVISOR", "REGIÓN", 
+    "DEPARTAMENTO DOMICILIO", "CIUDAD DOMICILIO", 
+    "CIIU", "MACROSECTOR"
+]
+
+# Rellenar valores nulos en columnas de texto
+print("\n--- 3.4 Rellenando Nulos de Texto ---")
+df_limpio["RAZÓN SOCIAL"] = df_limpio["RAZÓN SOCIAL"].fillna("DESCONOCIDA")
+print(f"Valores nulos restantes en 'RAZÓN SOCIAL': {df_limpio['RAZÓN SOCIAL'].isna().sum()}")
+
+# Normalizar texto (eliminar espacios y poner en minúsculas)
+print("\n--- Normalizando Columnas de Texto ---")
+for col in columnas_de_texto:
+    df_limpio[col] = df_limpio[col].astype(str).str.strip().str.lower()
+
+# --- RESULTADO DE LA LIMPIEZA ---
+print("\n--- Resultado de la limpieza ---")
+df_limpio.info()

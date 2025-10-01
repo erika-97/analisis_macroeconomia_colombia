@@ -1,0 +1,10 @@
+# 4. EXPORTAR EL DATAFRAME LIMPIO A UN ARCHIVO CSV 
+df_limpio.to_csv(
+    '10.000_Empresas_mas_Grandes_del_País(datos_limpios_final).csv',   # 1. Nombre y ruta del archivo de salida
+    index=False,               # 2. No incluir el índice del DataFrame como una columna
+    encoding='utf-8'           # 3. Usar codificación estándar para caracteres especiales
+)
+
+print("\n¡Datos exportados exitosamente!")
+print("El archivo '10.000_Empresas_mas_Grandes_del_País(datos_limpios_final).csv' se ha guardado en la misma carpeta que tu script.")
+
