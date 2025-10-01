@@ -1,8 +1,8 @@
 # analisis_macroeconomia_colombia
 Análisis financiero de las 10K empresas de Colombia: Eficiencia, Solidez y Concentración Geográfica.
 
-**Dashboard Screenshot**(<img width="941" height="765" alt="image" src="https://github.com/user-attachments/assets/c63c722f-62ea-46b7-b39a-02b7ae779cba" />
-<img width="965" height="784" alt="image" src="https://github.com/user-attachments/assets/51ff2b87-a8ef-43f2-a7bd-92c00fd0bb0d" />)
+[Dashboard Screenshot 1](https://github.com/user-attachments/assets/c63c722f-62ea-46b7-b39a-02b7ae779cba)
+[Dashboard Screenshot 2](https://github.com/user-attachments/assets/51ff2b87-a8ef-43f2-a7bd-92c00fd0bb0d)
 
 # Análisis Económico Estratégico de Macrosectoriales en Colombia
 *Estudio de Caso de Análisis de Datos*
